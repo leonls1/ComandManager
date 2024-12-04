@@ -1,4 +1,10 @@
 package project.commandmanager.model.enums;
 
-public class PaymentType {
+public enum PaymentType {
+    CASH,
+    DEBIT_CARD,
+    TRANSFER,
+    CREDIT_CARD
+
+
 }
