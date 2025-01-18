@@ -1,8 +1,7 @@
-package project.commandmanager.model.persistence;
+package project.commandmanager.repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
-import lombok.Setter;
 
 import java.util.List;
 

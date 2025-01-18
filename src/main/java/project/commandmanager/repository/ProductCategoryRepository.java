@@ -1,4 +1,4 @@
-package project.commandmanager.model.persistence;
+package project.commandmanager.repository;
 
 public class ProductCategoryRepository extends ARepository<ProductRepository, Long>{
 
