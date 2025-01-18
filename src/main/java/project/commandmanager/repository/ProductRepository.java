@@ -1,4 +1,4 @@
-package project.commandmanager.model.persistence;
+package project.commandmanager.repository;
 
 import project.commandmanager.model.entities.Product;
 

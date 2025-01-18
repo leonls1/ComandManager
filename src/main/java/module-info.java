@@ -8,8 +8,9 @@ module proeject.commandmanager {
 
     opens project.commandmanager to javafx.fxml;
     opens project.commandmanager.model.entities;
-    opens project.commandmanager.model.persistence;
+    opens project.commandmanager.repository;
     opens project.commandmanager.controller;
 
     exports project.commandmanager;
+    opens project.commandmanager.model.enums;
 }

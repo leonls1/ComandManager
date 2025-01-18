@@ -3,27 +3,23 @@ package project.commandmanager.model.entities;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import project.commandmanager.model.enums.Role;
 
 import java.util.List;
-
 @Getter
 @Setter
 @Entity
 @Table(name = "users")
-public class User {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    private Long id;
+public class User extends BasicEntity {
+    private String name;
+
+    private String lastName;
 
     private String username;
 
     private String password;
 
-    private boolean deleted;
-
-    @Enumerated(value = EnumType.STRING)
-    private Role rol;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    private Role role;
 
     @OneToMany(mappedBy = "user")
     private List<Sale> sales;
