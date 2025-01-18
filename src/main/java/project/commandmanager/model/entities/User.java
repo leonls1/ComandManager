@@ -3,6 +3,7 @@ package project.commandmanager.model.entities;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import project.commandmanager.model.enums.Role;
 
 import java.util.List;
 @Getter
@@ -18,7 +19,7 @@ public class User extends BasicEntity {
 
     private String password;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @Enumerated(value = EnumType.STRING)
     private Role role;
 
     @OneToMany(mappedBy = "user")

@@ -16,7 +16,7 @@ public class Client extends BasicEntity {
 
     private String clientName;
 
-    @OneToOne(mappedBy = "client")
+    @ManyToOne
     private Address address;
 
     @OneToMany(mappedBy = "client")
