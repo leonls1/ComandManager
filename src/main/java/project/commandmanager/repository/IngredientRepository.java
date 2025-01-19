@@ -5,7 +5,7 @@ import project.commandmanager.model.entities.Ingredient;
 
 public class IngredientRepository extends GRepository<Ingredient, Long> {
 
-    public IngredientRepository(EntityManager em, Class<Ingredient> entityClass) {
+    public IngredientRepository(EntityManager em) {
         super(em, Ingredient.class);
     }
 }

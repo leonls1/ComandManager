@@ -31,6 +31,6 @@ public class Product extends BasicEntity{
     @Enumerated(value = EnumType.STRING)
     private ProductCategory category;
 
-    @OneToMany(mappedBy = "recipe")
+    @OneToMany(mappedBy = "product")
     private List<SaleDetail> details;
 }

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.commandmanager.controller.RegisterCommandController">
+   <content>
+      <AnchorPane id="AnchorPane" prefHeight="671.0" prefWidth="900.0">
+         <children>
+            <Text layoutX="406.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Command Manager" />
+            <Text layoutX="322.0" layoutY="576.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Details" />
+            <Button fx:id="btnAddProduct" layoutX="748.0" layoutY="90.0" mnemonicParsing="false" onAction="#btnEvent" text="Add product" />
+            <Button fx:id="btnConfirm" layoutX="816.0" layoutY="610.0" mnemonicParsing="false" onAction="#btnEvent" text="Confirm " />
+            <Button fx:id="btnCancel" layoutX="404.0" layoutY="610.0" mnemonicParsing="false" onAction="#btnEvent" text="Cancel " />
+            <TableView fx:id="tableProducts" layoutX="28.0" layoutY="157.0" onMouseClicked="#mouseAction" prefHeight="226.0" prefWidth="850.0">
+               <columns>
+                  <TableColumn fx:id="colProduct" prefWidth="512.0" text="Product" />
+                  <TableColumn fx:id="colQuantity" prefWidth="78.0" text="quantity" />
+                  <TableColumn fx:id="colUnitPrice" prefWidth="151.0" text="Unit price" />
+                  <TableColumn fx:id="colSubTotal" prefWidth="108.0" text="Subtotal" />
+               </columns>
+            </TableView>
+            <Text layoutX="742.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total = $" />
+            <Text fx:id="txtTotalAmount" layoutX="790.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total amount" />
+            <ComboBox fx:id="cboPaymentType" layoutX="149.0" layoutY="559.0" prefHeight="25.0" prefWidth="150.0" promptText="Payment type" />
+            <Text layoutX="34.0" layoutY="576.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment type" />
+            <TextArea fx:id="txtAClarification" layoutX="134.0" layoutY="80.0" prefHeight="44.0" prefWidth="585.0" />
+            <HBox alignment="CENTER_LEFT" layoutX="60.0" layoutY="31.0" prefHeight="37.0" prefWidth="743.0" spacing="30.0">
+               <children>
+                  <ComboBox fx:id="cboProductCategory" prefHeight="25.0" prefWidth="150.0" promptText="Product category" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Product" />
+                  <ComboBox fx:id="cboProduct" onAction="#cboEvent" prefWidth="150.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" />
+                  <Spinner fx:id="spnQuantity" />
+                  <Text fx:id="txtProductPrice" fill="#477548" strokeType="OUTSIDE" strokeWidth="0.0" text="Price: " />
+               </children>
+            </HBox>
+            <Text layoutX="60.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crarification" />
+            <Button fx:id="btnPrint" layoutX="697.0" layoutY="610.0" mnemonicParsing="false" onAction="#btnEvent" text="Print command" />
+            <Button fx:id="btnRemoveProduct" layoutX="27.0" layoutY="396.0" mnemonicParsing="false" onAction="#btnEvent" text="Remove product" />
+            <TextField fx:id="txtDetails" layoutX="396.0" layoutY="559.0" prefHeight="25.0" prefWidth="399.0" />
+            <Button fx:id="btnMenu" layoutX="29.0" layoutY="610.0" mnemonicParsing="false" onAction="#btnEvent" text="Menu" />
+            <Text layoutX="827.0" layoutY="661.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Version 1.0.0" />
+            <TitledPane animated="false" layoutX="28.0" layoutY="439.0" prefHeight="89.0" prefWidth="850.0" text="Client info">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="60.0" prefWidth="847.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="4.0" prefHeight="61.0" prefWidth="800.0" spacing="15.0">
+                           <children>
+                              <ComboBox fx:id="cboNeighborhood" prefWidth="150.0" promptText="Neighborhood" />
+                              <ComboBox fx:id="cboStreet" prefWidth="150.0" promptText="Street" />
+                              <TextField fx:id="txtAdress" promptText="Street Number" />
+                              <TextField fx:id="txtDepartmentnumber" prefHeight="25.0" prefWidth="98.0" promptText="Deparment N°" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Client name" />
+                              <TextField fx:id="txtClientName" promptText="Client name" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

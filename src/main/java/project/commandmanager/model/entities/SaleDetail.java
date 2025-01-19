@@ -18,7 +18,7 @@ public class SaleDetail extends BasicEntity {
     private String clarification;
 
     @ManyToOne
-    private Recipe recipe;
+    private Product product;
 
     @ManyToOne
     private Sale sale;
