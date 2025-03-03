@@ -16,31 +16,31 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="974.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.commandmanager.controller.CRUDController" >
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="974.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.commandmanager.controller.CRUDController">
   <tabs>
     <Tab text="Products">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="541.0" prefWidth="873.0">
                <children>
-                  <ComboBox layoutX="272.0" layoutY="32.0" prefWidth="150.0" promptText="Category" />
-                  <TableView layoutX="22.0" layoutY="239.0" prefHeight="200.0" prefWidth="650.0">
+                  <ComboBox fx:id="cboProductCategories" layoutX="272.0" layoutY="32.0" prefWidth="150.0" promptText="Category" />
+                  <TableView fx:id="tableProducts" layoutX="22.0" layoutY="239.0" prefHeight="200.0" prefWidth="650.0">
                     <columns>
-                      <TableColumn prefWidth="409.0" text="Name" />
-                        <TableColumn prefWidth="73.0" text="Cost" />
-                        <TableColumn prefWidth="89.0" text="Profit %" />
-                        <TableColumn prefWidth="78.0" text="Final price" />
+                      <TableColumn fx:id="colProductName" prefWidth="409.0" text="Name" />
+                        <TableColumn fx:id="colProductCost" prefWidth="73.0" text="Cost" />
+                        <TableColumn fx:id="colProductProfit" prefWidth="89.0" text="Profit %" />
+                        <TableColumn fx:id="colProductFinalPrice" prefWidth="78.0" text="Final price" />
                     </columns>
                   </TableView>
                   <Text layoutX="335.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                  <Button layoutX="310.0" layoutY="475.0" mnemonicParsing="false" text="Delete" />
-                  <Button layoutX="623.0" layoutY="475.0" mnemonicParsing="false" text="Clear" />
-                  <Button layoutX="861.0" layoutY="487.0" mnemonicParsing="false" text="Update" />
+                  <Button fx:id="btnProductDelete" layoutX="310.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnEvent" text="Delete" />
+                  <Button fx:id="btnProductClear" layoutX="623.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnEvent" text="Clear" />
+                  <Button fx:id="btnProductUpdate" layoutX="854.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnEvent" text="Update" />
                   <Text layoutX="28.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
                   <Text layoutX="29.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
-                  <ComboBox layoutX="622.0" layoutY="32.0" prefWidth="150.0" promptText="Ingredients" />
-                  <Button layoutX="792.0" layoutY="32.0" mnemonicParsing="false" text="Add ingredient" />
-                  <TextArea layoutX="24.0" layoutY="111.0" prefHeight="96.0" prefWidth="402.0" />
-                  <TextField layoutX="82.0" layoutY="32.0" />
+                  <ComboBox fx:id="cboProductIngredients" layoutX="622.0" layoutY="32.0" prefWidth="150.0" promptText="Ingredients" />
+                  <Button fx:id="btnProductAddIngredient" layoutX="792.0" layoutY="32.0" mnemonicParsing="false" text="Add ingredient" />
+                  <TextArea fx:id="txtProductDescription" layoutX="24.0" layoutY="111.0" prefHeight="96.0" prefWidth="402.0" />
+                  <TextField fx:id="txtProductName" layoutX="82.0" layoutY="32.0" />
                   <GridPane layoutX="687.0" layoutY="239.0" prefHeight="90.0" prefWidth="222.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -55,23 +55,23 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total cost" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profit percentage" GridPane.rowIndex="1" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Final price" GridPane.rowIndex="2" />
-                        <TextField prefHeight="25.0" prefWidth="70.0" GridPane.columnIndex="1" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtProductTotalCost" prefHeight="25.0" prefWidth="70.0" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtProductProfit" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtProductFinalPrice" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
-                  <Spinner layoutX="623.0" layoutY="71.0" />
+                  <Spinner fx:id="spnProductIngredientQuantity" layoutX="623.0" layoutY="71.0" />
                   <Text layoutX="550.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredient" />
                   <Text layoutX="552.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" />
-                  <TableView layoutX="484.0" layoutY="108.0" prefHeight="102.0" prefWidth="426.0">
+                  <TableView fx:id="tableProductIngredients" layoutX="484.0" layoutY="108.0" prefHeight="102.0" prefWidth="426.0">
                     <columns>
-                      <TableColumn prefWidth="249.0" text="ingedient" />
-                      <TableColumn minWidth="8.0" prefWidth="79.0" text="quantity" />
-                        <TableColumn prefWidth="97.0" text="cost" />
+                      <TableColumn fx:id="colProductIngredientName" prefWidth="249.0" text="ingedient" />
+                      <TableColumn fx:id="colProductIngredientQuantity" minWidth="8.0" prefWidth="79.0" text="quantity" />
+                        <TableColumn fx:id="colProductCost" prefWidth="97.0" text="cost" />
                     </columns>
                   </TableView>
-                  <Button layoutX="823.0" layoutY="356.0" mnemonicParsing="false" text="Save Product" />
-                  <Button layoutX="22.0" layoutY="475.0" mnemonicParsing="false" text="Menu" />
+                  <Button fx:id="btnProductCreate" layoutX="813.0" layoutY="350.0" mnemonicParsing="false" text="Create Product" />
+                  <Button fx:id="btnProductMenu" layoutX="22.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnEvent" text="Menu" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -93,8 +93,8 @@
                   <Button layoutX="857.0" layoutY="477.0" mnemonicParsing="false" text="Update" />
                   <Text layoutX="63.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
                   <Text layoutX="63.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
-                  <TextArea layoutX="153.0" layoutY="78.0" prefHeight="96.0" prefWidth="402.0" />
-                  <TextField layoutX="153.0" layoutY="40.0" />
+                  <TextArea fx:id="txtIngredientDescription" layoutX="153.0" layoutY="78.0" prefHeight="96.0" prefWidth="402.0" />
+                  <TextField fx:id="txtIngredientName" layoutX="153.0" layoutY="40.0" />
                   <Button layoutX="55.0" layoutY="477.0" mnemonicParsing="false" text="Menu" />
                   <GridPane layoutX="649.0" layoutY="34.0" prefHeight="120.0" prefWidth="263.0">
                     <columnConstraints>
@@ -118,7 +118,7 @@
                         <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
-                  <Button layoutX="859.0" layoutY="177.0" mnemonicParsing="false" text="Create" />
+                  <Button fx:id="btnIngredientCreate" layoutX="859.0" layoutY="177.0" mnemonicParsing="false" text="Create" />
                </children></AnchorPane>
       </content>
     </Tab>
