@@ -23,7 +23,7 @@
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="541.0" prefWidth="873.0">
                <children>
                   <ComboBox fx:id="cboProductCategories" layoutX="272.0" layoutY="32.0" prefWidth="150.0" promptText="Category" />
-                  <TableView fx:id="tableProducts" layoutX="22.0" layoutY="239.0" prefHeight="200.0" prefWidth="650.0">
+                  <TableView fx:id="tableProducts" layoutX="22.0" layoutY="239.0" onMouseClicked="#tableEvent" prefHeight="200.0" prefWidth="650.0">
                     <columns>
                       <TableColumn fx:id="colProductName" prefWidth="409.0" text="Name" />
                         <TableColumn fx:id="colProductCost" prefWidth="73.0" text="Cost" />
@@ -32,13 +32,13 @@
                     </columns>
                   </TableView>
                   <Text layoutX="335.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                  <Button fx:id="btnProductDelete" layoutX="310.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnEvent" text="Delete" />
-                  <Button fx:id="btnProductClear" layoutX="623.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnEvent" text="Clear" />
-                  <Button fx:id="btnProductUpdate" layoutX="854.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnEvent" text="Update" />
+                  <Button fx:id="btnProductDelete" layoutX="310.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnEventProduct" text="Delete" />
+                  <Button fx:id="btnProductClear" layoutX="623.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnEventProduct" text="Clear" />
+                  <Button fx:id="btnProductUpdate" layoutX="854.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnEventProduct" text="Update" />
                   <Text layoutX="28.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
                   <Text layoutX="29.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
                   <ComboBox fx:id="cboProductIngredients" layoutX="622.0" layoutY="32.0" prefWidth="150.0" promptText="Ingredients" />
-                  <Button fx:id="btnProductAddIngredient" layoutX="792.0" layoutY="32.0" mnemonicParsing="false" text="Add ingredient" />
+                  <Button fx:id="btnProductAddIngredient" layoutX="792.0" layoutY="32.0" mnemonicParsing="false" onAction="#btnEventProduct" prefHeight="25.0" prefWidth="117.0" text="Add ingredient" />
                   <TextArea fx:id="txtProductDescription" layoutX="24.0" layoutY="111.0" prefHeight="96.0" prefWidth="402.0" />
                   <TextField fx:id="txtProductName" layoutX="82.0" layoutY="32.0" />
                   <GridPane layoutX="687.0" layoutY="239.0" prefHeight="90.0" prefWidth="222.0">
@@ -63,15 +63,16 @@
                   <Spinner fx:id="spnProductIngredientQuantity" layoutX="623.0" layoutY="71.0" />
                   <Text layoutX="550.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredient" />
                   <Text layoutX="552.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" />
-                  <TableView fx:id="tableProductIngredients" layoutX="484.0" layoutY="108.0" prefHeight="102.0" prefWidth="426.0">
+                  <TableView fx:id="tableProductIngredients" layoutX="484.0" layoutY="108.0" onMouseClicked="#tableEvent" prefHeight="102.0" prefWidth="426.0">
                     <columns>
                       <TableColumn fx:id="colProductIngredientName" prefWidth="249.0" text="ingedient" />
                       <TableColumn fx:id="colProductIngredientQuantity" minWidth="8.0" prefWidth="79.0" text="quantity" />
                         <TableColumn fx:id="colProductCost" prefWidth="97.0" text="cost" />
                     </columns>
                   </TableView>
-                  <Button fx:id="btnProductCreate" layoutX="813.0" layoutY="350.0" mnemonicParsing="false" text="Create Product" />
-                  <Button fx:id="btnProductMenu" layoutX="22.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnEvent" text="Menu" />
+                  <Button fx:id="btnProductCreate" layoutX="813.0" layoutY="350.0" mnemonicParsing="false" onAction="#btnEventProduct" text="Create Product" />
+                  <Button fx:id="btnProductMenu" layoutX="22.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnEventProduct" text="Menu" />
+                  <Button fx:id="btnProductRemoveIngredient" layoutX="792.0" layoutY="71.0" mnemonicParsing="false" onAction="#btnEventProduct" text="Remove ingredient" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -79,23 +80,23 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView layoutX="63.0" layoutY="220.0" prefHeight="200.0" prefWidth="849.0">
+                  <TableView fx:id="tableIngredient" layoutX="63.0" layoutY="220.0" onMouseClicked="#tableEvent" prefHeight="200.0" prefWidth="849.0">
                      <columns>
-                        <TableColumn prefWidth="474.0" text="Name" />
-                        <TableColumn prefWidth="92.0" text="Cost" />
-                        <TableColumn prefWidth="95.0" text="Actual stock" />
-                        <TableColumn prefWidth="81.0" text="Max stock" />
-                        <TableColumn prefWidth="106.0" text="Min Stock" />
+                        <TableColumn fx:id="colIngredientName" prefWidth="474.0" text="Name" />
+                        <TableColumn fx:id="colIngredientCost" prefWidth="92.0" text="Cost" />
+                        <TableColumn fx:id="colIngredientActualStock" prefWidth="95.0" text="Actual stock" />
+                        <TableColumn fx:id="colIngredientMaxStock" prefWidth="81.0" text="Max stock" />
+                        <TableColumn fx:id="colIngredientMinStock" prefWidth="106.0" text="Min Stock" />
                      </columns>
                   </TableView>
-                  <Button layoutX="303.0" layoutY="477.0" mnemonicParsing="false" text="Delete" />
-                  <Button layoutX="560.0" layoutY="477.0" mnemonicParsing="false" text="Clear" />
-                  <Button layoutX="857.0" layoutY="477.0" mnemonicParsing="false" text="Update" />
+                  <Button fx:id="btnIngredientDelete" layoutX="303.0" layoutY="477.0" mnemonicParsing="false" onAction="#btnEventIngredient" text="Delete" />
+                  <Button fx:id="btnIngredientClear" layoutX="560.0" layoutY="477.0" mnemonicParsing="false" onAction="#btnEventIngredient" text="Clear" />
+                  <Button fx:id="btnIngredientUpdate" layoutX="857.0" layoutY="477.0" mnemonicParsing="false" onAction="#btnEventIngredient" text="Update" />
                   <Text layoutX="63.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
                   <Text layoutX="63.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
                   <TextArea fx:id="txtIngredientDescription" layoutX="153.0" layoutY="78.0" prefHeight="96.0" prefWidth="402.0" />
                   <TextField fx:id="txtIngredientName" layoutX="153.0" layoutY="40.0" />
-                  <Button layoutX="55.0" layoutY="477.0" mnemonicParsing="false" text="Menu" />
+                  <Button fx:id="btnIngredientMenu" layoutX="55.0" layoutY="477.0" mnemonicParsing="false" onAction="#btnEventIngredient" text="Menu" />
                   <GridPane layoutX="649.0" layoutY="34.0" prefHeight="120.0" prefWidth="263.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="95.0" />
@@ -108,17 +109,17 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Spinner GridPane.columnIndex="1" />
-                        <Spinner GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Spinner GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Spinner fx:id="spnIngredientActualStock" GridPane.columnIndex="1" />
+                        <Spinner fx:id="spnIngredientMaxStock" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Spinner fx:id="spnIngredientMinStock" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Actual stock" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Max stock" GridPane.rowIndex="1" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Min stock" GridPane.rowIndex="2" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cost" GridPane.rowIndex="3" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="txtIngredientCost" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
-                  <Button fx:id="btnIngredientCreate" layoutX="859.0" layoutY="177.0" mnemonicParsing="false" text="Create" />
+                  <Button fx:id="btnIngredientCreate" layoutX="859.0" layoutY="177.0" mnemonicParsing="false" onAction="#btnEventIngredient" text="Create" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -126,22 +127,22 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="384.0" prefWidth="802.0">
                <children>
-                  <TableView layoutX="63.0" layoutY="205.0" prefHeight="200.0" prefWidth="849.0">
+                  <TableView fx:id="tableCategory" layoutX="63.0" layoutY="205.0" onMouseClicked="#tableEvent" prefHeight="200.0" prefWidth="849.0">
                      <columns>
-                        <TableColumn prefWidth="99.0" text="Name" />
-                        <TableColumn prefWidth="749.0" text="Description" />
+                        <TableColumn fx:id="colCategoryName" prefWidth="99.0" text="Name" />
+                        <TableColumn fx:id="colCategoryDescription" prefWidth="749.0" text="Description" />
                      </columns>
                   </TableView>
-                  <Button layoutX="320.0" layoutY="473.0" mnemonicParsing="false" text="Delete" />
-                  <Button layoutX="568.0" layoutY="473.0" mnemonicParsing="false" text="Clear" />
-                  <Button layoutX="857.0" layoutY="473.0" mnemonicParsing="false" text="Update" />
+                  <Button fx:id="btnCategoryDelete" layoutX="320.0" layoutY="473.0" mnemonicParsing="false" onAction="#btnEventCategory" text="Delete" />
+                  <Button fx:id="btnCategoryClear" layoutX="568.0" layoutY="473.0" mnemonicParsing="false" onAction="#btnEventCategory" text="Clear" />
+                  <Button fx:id="btnCategoryUpdate" layoutX="857.0" layoutY="473.0" mnemonicParsing="false" onAction="#btnEventCategory" text="Update" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-                  <TextArea layoutX="133.0" layoutY="71.0" prefHeight="96.0" prefWidth="402.0" />
-                  <TextField layoutX="133.0" layoutY="31.0" />
-                  <Button layoutX="63.0" layoutY="473.0" mnemonicParsing="false" text="Menu" />
+                  <TextArea fx:id="txtCategoryDescription" layoutX="133.0" layoutY="71.0" prefHeight="96.0" prefWidth="402.0" />
+                  <TextField fx:id="txtCategoryName" layoutX="133.0" layoutY="31.0" />
+                  <Button fx:id="btnCategoryMenu" layoutX="63.0" layoutY="473.0" mnemonicParsing="false" onAction="#btnEventCategory" text="Menu" />
                   <Text layoutX="55.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
                   <Text layoutX="56.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
-                  <Button layoutX="564.0" layoutY="142.0" mnemonicParsing="false" text="Create" />
+                  <Button fx:id="btnCategoryCreate" layoutX="564.0" layoutY="142.0" mnemonicParsing="false" onAction="#btnEventCategory" text="Create" />
                </children></AnchorPane>
         </content>
       </Tab>
@@ -149,26 +150,26 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="424.0" prefWidth="974.0">
                <children>
-                  <TableView layoutX="73.0" layoutY="109.0" prefHeight="311.0" prefWidth="371.0">
+                  <TableView fx:id="tableUserAll" layoutX="73.0" layoutY="109.0" onMouseClicked="#tableEvent" prefHeight="311.0" prefWidth="371.0">
                      <columns>
-                        <TableColumn prefWidth="176.0" text="Username" />
-                        <TableColumn prefWidth="105.0" text="Rol" />
-                        <TableColumn prefWidth="89.0" text="Deleted" />
+                        <TableColumn fx:id="colUserUsername" prefWidth="176.0" text="Username" />
+                        <TableColumn fx:id="colUserRole" prefWidth="105.0" text="Role" />
+                        <TableColumn fx:id="colUserDeleted" prefWidth="89.0" text="Deleted" />
                      </columns>
                   </TableView>
-                  <Button layoutX="322.0" layoutY="475.0" mnemonicParsing="false" text="Delete" />
-                  <Button layoutX="593.0" layoutY="475.0" mnemonicParsing="false" text="Clear" />
-                  <Button layoutX="841.0" layoutY="475.0" mnemonicParsing="false" text="Update" />
+                  <Button fx:id="btnUserDelete" layoutX="322.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnEventUser" text="Delete" />
+                  <Button fx:id="btnUserClear" layoutX="593.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnEventUser" text="Clear" />
+                  <Button fx:id="btnUserUpdate" layoutX="841.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnEventUser" text="Update" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-                  <Button layoutX="63.0" layoutY="475.0" mnemonicParsing="false" text="Menu" />
-                  <TableView layoutX="522.0" layoutY="110.0" prefHeight="309.0" prefWidth="371.0">
+                  <Button fx:id="btnUserMenu" layoutX="63.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnEventUser" text="Menu" />
+                  <TableView fx:id="tableUserSales" layoutX="522.0" layoutY="110.0" onMouseClicked="#tableEvent" prefHeight="309.0" prefWidth="371.0">
                      <columns>
-                        <TableColumn prefWidth="76.0" text="Sale id" />
-                        <TableColumn prefWidth="205.0" text="Date time" />
-                        <TableColumn prefWidth="89.0" text="Amount" />
+                        <TableColumn fx:id="colUserSaleId" prefWidth="76.0" text="Sale id" />
+                        <TableColumn fx:id="colUserSaleDate" prefWidth="205.0" text="Date time" />
+                        <TableColumn fx:id="colUserSaleAmount" prefWidth="89.0" text="Amount" />
                      </columns>
                   </TableView>
-                  <Button layoutX="829.0" layoutY="37.0" mnemonicParsing="false" text="Create" />
+                  <Button fx:id="btnUserCreate" layoutX="829.0" layoutY="37.0" mnemonicParsing="false" onAction="#btnEventUser" text="Create" />
                   <GridPane layoutX="63.0" layoutY="17.0" prefHeight="90.0" prefWidth="744.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="71.0" />
@@ -185,13 +186,13 @@
                     </rowConstraints>
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
-                        <TextField prefWidth="149.0" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtUserUsername" prefWidth="149.0" GridPane.columnIndex="1" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password" GridPane.rowIndex="1" />
-                        <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Old password" GridPane.columnIndex="2" />
-                        <PasswordField GridPane.columnIndex="3" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Role" GridPane.columnIndex="4" />
-                        <ComboBox prefWidth="150.0" GridPane.columnIndex="5" />
+                        <ComboBox fx:id="cboUserRole" prefWidth="150.0" GridPane.columnIndex="5" />
+                        <PasswordField fx:id="txtUserPassword" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <PasswordField fx:id="txtUserOldPassword" GridPane.columnIndex="3" />
                      </children>
                   </GridPane>
                </children></AnchorPane>
@@ -201,27 +202,27 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView layoutX="26.0" layoutY="38.0" prefHeight="200.0" prefWidth="707.0">
+                  <TableView fx:id="tableSaleAll" layoutX="26.0" layoutY="38.0" onMouseClicked="#tableEvent" prefHeight="200.0" prefWidth="707.0">
                      <columns>
-                        <TableColumn prefWidth="32.0" text="ID" />
-                        <TableColumn prefWidth="152.0" text="Client name" />
-                        <TableColumn prefWidth="180.0" text="Adress" />
-                        <TableColumn prefWidth="109.0" text="date time" />
-                        <TableColumn prefWidth="88.0" text="total amount" />
-                        <TableColumn prefWidth="145.0" text="Sales person" />
+                        <TableColumn fx:id="colSaleId" prefWidth="32.0" text="ID" />
+                        <TableColumn fx:id="colSaleClientName" prefWidth="152.0" text="Client name" />
+                        <TableColumn fx:id="colSaleAddress" prefWidth="180.0" text="Adress" />
+                        <TableColumn fx:id="colSaleDate" prefWidth="109.0" text="date time" />
+                        <TableColumn fx:id="colSaleAmount" prefWidth="88.0" text="total amount" />
+                        <TableColumn fx:id="colSaleSalesperson" prefWidth="145.0" text="Sales person" />
                      </columns>
                   </TableView>
-                  <Button layoutX="363.0" layoutY="479.0" mnemonicParsing="false" text="Delete" />
-                  <Button layoutX="647.0" layoutY="479.0" mnemonicParsing="false" text="Clear" />
-                  <Button layoutX="855.0" layoutY="479.0" mnemonicParsing="false" text="Update" />
+                  <Button fx:id="btnSaleDelete" layoutX="363.0" layoutY="479.0" mnemonicParsing="false" onAction="#btnEventSale" text="Delete" />
+                  <Button fx:id="btnSaleClear" layoutX="647.0" layoutY="479.0" mnemonicParsing="false" onAction="#btnEventSale" text="Clear" />
+                  <Button fx:id="btnSaleUpdate" layoutX="855.0" layoutY="479.0" mnemonicParsing="false" onAction="#btnEventSale" text="Update" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-                  <Button layoutX="32.0" layoutY="479.0" mnemonicParsing="false" text="Menu" />
-                  <TableView layoutX="26.0" layoutY="256.0" prefHeight="200.0" prefWidth="414.0">
+                  <Button fx:id="btnSaleMenu" layoutX="32.0" layoutY="479.0" mnemonicParsing="false" onAction="#btnEventSale" text="Menu" />
+                  <TableView fx:id="tablleSaleDetails" layoutX="26.0" layoutY="256.0" onMouseClicked="#tableEvent" prefHeight="200.0" prefWidth="414.0">
                      <columns>
-                        <TableColumn prefWidth="47.0" text="Sale id" />
-                        <TableColumn prefWidth="211.0" text="Product" />
-                        <TableColumn prefWidth="75.0" text="quantity" />
-                        <TableColumn text="Sub total" />
+                        <TableColumn fx:id="colSaleDetailId" prefWidth="47.0" text="Sale id" />
+                        <TableColumn fx:id="colSaleDetailProduct" prefWidth="211.0" text="Product" />
+                        <TableColumn fx:id="colSaleDetailQuantity" prefWidth="75.0" text="quantity" />
+                        <TableColumn fx:id="colSaleDetailSubtotal" text="Sub total" />
                      </columns>
                   </TableView>
                   <GridPane layoutX="746.0" layoutY="40.0" prefHeight="118.0" prefWidth="219.0">
@@ -240,13 +241,13 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Adress" GridPane.rowIndex="1" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sales persoon" GridPane.rowIndex="2" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total " GridPane.rowIndex="3" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField GridPane.columnIndex="1" />
-                        <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtSaleTotalAmount" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="txtSaleAddress" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtSaleClientName" GridPane.columnIndex="1" />
+                        <ComboBox fx:id="cboSaleSalesPerson" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
-                  <TextArea layoutX="684.0" layoutY="284.0" prefHeight="162.0" prefWidth="262.0" />
+                  <TextArea fx:id="txtSaleObersvations" layoutX="684.0" layoutY="284.0" prefHeight="162.0" prefWidth="262.0" />
                   <Text layoutX="684.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observations" />
                </children></AnchorPane>
         </content>
